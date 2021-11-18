@@ -319,6 +319,7 @@ function onMapClick(e) {
 
 function processSourceFeatures(features) {
   /*const uniqueFeatures = filterDuplicates(features);*/
+  const uniqueFeatures = features
   console.log(uniqueFeatures)
   const data = uniqueFeatures.reduce(
     (acc, current) => {
