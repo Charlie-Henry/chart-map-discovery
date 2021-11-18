@@ -207,7 +207,8 @@ function makeGeoJSON(csvData) {
   csv2geojson.csv2geojson(csvData, {
     latfield: 'latitude',
     lonfield: 'longitude',
-    delimiter: ','
+    delimiter: ',',
+    numericFields: 'most_recent,2020-02,2020-03,2020-04,2020-05,2020-06,2020-07,2020-08,2020-09,2020-10,2020-11,2020-12,2021-01,2021-02,2021-03,2021-04,2021-05,2021-06,2021-07,2021-08,2021-09,2021-10'
   }, function (err, data) {
   map.on('load', function () {
 
@@ -282,7 +283,7 @@ map.once('idle', () => {
    * */
    
   const sourceFeatures = map.querySourceFeatures(config.sourceId);
-  console.log(sourceFeatures)
+  
   processSourceFeatures(sourceFeatures);
 });
 
@@ -318,7 +319,7 @@ function onMapClick(e) {
 
 function processSourceFeatures(features) {
   const uniqueFeatures = filterDuplicates(features);
-
+  console.log(uniqueFeatures)
   const data = uniqueFeatures.reduce(
     (acc, current) => {
       config.fields.forEach((field, idx) => {
