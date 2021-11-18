@@ -17,7 +17,7 @@ const config = {
   /**
    * The layer within the vector tileset to use for querying
    */
-  sourceLayer: 'hist-pres-election-county',
+  sourceLayer: 'csvData',
   /**
    * This sets the title in the sidebar and the <title> tag of the app
    */
@@ -60,7 +60,7 @@ const config = {
   /**
    * Basic implementation of zooming to a clicked feature
    */
-  zoomToFeature: true,
+  zoomToFeature: false,
   /**
    * Color to highlight features on map on click
    * TODO: add parameter for fill color too?
