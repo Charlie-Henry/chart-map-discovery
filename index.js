@@ -187,7 +187,7 @@ function makeGeoJSON(csvData) {
 };
 });
 
-/**
+
 map.once('idle', () => {
   bbFull = map.getBounds();
 
@@ -195,16 +195,16 @@ map.once('idle', () => {
 
   
   /** Layer for onClick highlights, to change to a fill see this tutorial: https://docs.mapbox.com/mapbox-gl-js/example/hover-styles/ */
-  /**
+  
   map.addLayer({
     id: 'highlight',
-    type: 'line',
+    type: 'circle',
     source: 'composite',
     'source-layer': config.sourceLayer,
     paint: {
-      'line-color': config.highlightColor,
-      'line-width': 2,
-      'line-opacity': [
+      'circle-color': config.highlightColor,
+      'circle-radius': 10,
+      'circle-opacity': [
         'case',
         ['boolean', ['feature-state', 'active'], false],
         0.7,
@@ -229,7 +229,7 @@ map.once('idle', () => {
 });
 */
 
-/**
+
 document.getElementById('resetButton').onclick = () => {
   if (summaryData) {
     updateChartFromFeatures(summaryData);
@@ -239,9 +239,9 @@ document.getElementById('resetButton').onclick = () => {
     map.fitBounds(bbFull);
   }
 };
-*/
 
-/**
+
+
 function onMapClick(e) {
   const clickedFeature = map
     .queryRenderedFeatures(e.point)
@@ -325,7 +325,7 @@ function updateChartFromFeatures(features) {
  * @param {Object} feature
  */
 
- /**
+ 
 function updateChartFromClick(feature) {
   const data = config.fields.reduce((acc, field) => {
     acc.push(feature.properties[field]);
@@ -351,7 +351,7 @@ function updateChartFromClick(feature) {
  * Builds out a legend from the viz layer
  */
 
- /**
+ 
 function buildLegend() {
   const legend = document.getElementById('legend');
   const legendColors = document.getElementById('legend-colors');
@@ -389,4 +389,4 @@ function buildLegend() {
       legendValues.innerHTML += value;
     });
   }
-}*/
+}
