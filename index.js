@@ -56,7 +56,7 @@ const config = {
   /**
    * Label for the graph line
    */
-  dataSeriesLabel: 'Voter Turnout',
+  dataSeriesLabel: 'Traffic Volumes',
   /**
    * Basic implementation of zooming to a clicked feature
    */
@@ -226,9 +226,7 @@ map.once('idle', () => {
    * To graph all features within the viewport, change this to queryRenderedFeatures and trigger on 'idle' or 'render'
    * */
    
-  const sourceFeatures = map.querySourceFeatures(config.sourceId, {
-    sourceLayer: config.sourceLayer,
-  });
+  const sourceFeatures = map.querySourceFeatures(config.sourceId);
   processSourceFeatures(sourceFeatures);
 });
 
