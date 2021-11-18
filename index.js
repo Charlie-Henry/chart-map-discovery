@@ -164,6 +164,9 @@ const chart = c3.generate({
     y: {
       max : 100,
       min : 0,
+      tick: {
+        values: [50, 100]
+      }
 
     },
   },
