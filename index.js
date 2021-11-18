@@ -247,7 +247,7 @@ document.getElementById('resetButton').onclick = () => {
 function onMapClick(e) {
   const clickedFeature = map
     .queryRenderedFeatures(e.point)
-    .filter((item) => item.layer['source-layer'] === config.sourceLayer)[0];
+    .filter((item) => item.layer['id'] === config.sourceId)[0];
   if (clickedFeature) {
     if (config.zoomToFeature) {
       const bb = turf.bbox(clickedFeature.geometry);
