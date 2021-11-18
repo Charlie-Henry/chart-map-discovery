@@ -233,6 +233,8 @@ document.getElementById('resetButton').onclick = () => {
   }
 };
 */
+
+/**
 function onMapClick(e) {
   const clickedFeature = map
     .queryRenderedFeatures(e.point)
@@ -315,6 +317,8 @@ function updateChartFromFeatures(features) {
  * specified in the config object.
  * @param {Object} feature
  */
+
+ /**
 function updateChartFromClick(feature) {
   const data = config.fields.reduce((acc, field) => {
     acc.push(feature.properties[field]);
@@ -339,6 +343,8 @@ function updateChartFromClick(feature) {
 /**
  * Builds out a legend from the viz layer
  */
+
+ /**
 function buildLegend() {
   const legend = document.getElementById('legend');
   const legendColors = document.getElementById('legend-colors');
@@ -376,4 +382,4 @@ function buildLegend() {
       legendValues.innerHTML += value;
     });
   }
-}
+}*/
