@@ -315,7 +315,7 @@ function updateChartFromFeatures(features) {
 /**
  * This function takes in the clicked feature and builds a data object for the chart using fields
  * specified in the config object.
- * /**@param {Object} feature
+ * @param {Object} feature
  */
 
  /**
