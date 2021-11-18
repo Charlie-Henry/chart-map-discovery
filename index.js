@@ -79,7 +79,7 @@ const config = {
   /**
    * (Experimental) Try to build a legend automatically from the studio style,
    *  only works with a basic [interpolate] expression ramp with stops */
-  autoLegend: true,
+  autoLegend: false,
   /** The number of decimal places to use when rounding values for the legend, defaults to 1 */
   autoLegendDecimals: 1,
 
