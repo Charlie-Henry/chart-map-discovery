@@ -74,7 +74,7 @@ const config = {
    * The name of the vector source, leave as composite if using a studio style,
    * change if loading a tileset programmatically
    */
-  sourceId: 'composite',
+  sourceId: 'csvData',
 
   /**
    * (Experimental) Try to build a legend automatically from the studio style,
