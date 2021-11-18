@@ -9,11 +9,11 @@ const config = {
    * Replace this with your Mapbox Access Token (**Do this first!**)
    */
   accessToken:
-    'pk.eyJ1IjoibWFwYm94LWNvbW11bml0eSIsImEiOiJja2tkN21jcjAwMG51MnBxdHAxemdueGpzIn0.e0IzLkytGq4pcGGieP8KNA',
+    'pk.eyJ1IjoiY2hhcmxpZTIzNDMiLCJhIjoiY2p1MzBiYWRlMDF3eTRlczdoaHFxMzl0MCJ9.juqQvFAijgos8InomJ-R7A',
   /**
    * Replace with the url of your map style
    */
-  mapStyle: 'mapbox://styles/mapbox-community/ckglghzgg0d6y19pe11eo9zlw',
+  mapStyle: 'mapbox://styles/charlie2343/ckw54jz6w0ogi15paejskgx4w',
   /**
    * The layer within the vector tileset to use for querying
    */
