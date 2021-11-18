@@ -4,3 +4,7 @@
 .c3-line{
   stroke-width: 4px;
 }
+.c3-circle {
+  fill: currentColor;
+  r: 5;
+}
