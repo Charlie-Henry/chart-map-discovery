@@ -361,7 +361,7 @@ function buildLegend() {
     legend.classList.add('block-ml');
     const style = map.getStyle();
     const layer = style.layers.find((i) => i.id === config.studioLayerName);
-    const fill = layer.paint['fill-color'];
+    const fill = layer.paint['circle-color'];
     // Remove the interpolate expression to get the stops
     const stops = fill.slice(3);
     stops.forEach((stop, index) => {
