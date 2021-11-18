@@ -180,6 +180,9 @@ function makeGeoJSON(csvData) {
         'circle-color': "purple"
           }
   });
+});
+});
+};
 /**
 map.once('idle', () => {
   bbFull = map.getBounds();
