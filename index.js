@@ -282,6 +282,7 @@ map.once('idle', () => {
    * */
    
   const sourceFeatures = map.querySourceFeatures(config.sourceId);
+  console.log(sourceFeatures)
   processSourceFeatures(sourceFeatures);
 });
 
@@ -327,7 +328,6 @@ function processSourceFeatures(features) {
     },
     config.fields.map(() => 0),
   );
-  console.log(data)
   // Save the queried data for resetting later
   if (config.summaryType === 'avg') {
     summaryData = data.map((i) => i / uniqueFeatures.length);
