@@ -164,7 +164,13 @@ const chart = c3.generate({
     y: {
       max : 100,
       min : 0,
+
     },
+  },
+  grid:{
+    y: {
+            show: true
+        }
   },
   size: {
     height: 200,
