@@ -183,6 +183,8 @@ function makeGeoJSON(csvData) {
 });
 });
 };
+});
+
 /**
 map.once('idle', () => {
   bbFull = map.getBounds();
