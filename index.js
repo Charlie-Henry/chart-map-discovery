@@ -186,7 +186,7 @@ mapboxgl.accessToken = config.accessToken;
 const map = new mapboxgl.Map({
   container: 'map',
   style: config.mapStyle,
-  center: [-97.7298,30.3261],
+  center: [-97.6558,30.3998],
   // Change this if you want to zoom out further
   minZoom: 8,
   zoom: 10,
@@ -331,6 +331,7 @@ function processSourceFeatures(features) {
   // Save the queried data for resetting later
   if (config.summaryType === 'avg') {
     summaryData = data.map((i) => i / uniqueFeatures.length);
+    console.log(summaryData)
   } else {
     summaryData = data;
   }
