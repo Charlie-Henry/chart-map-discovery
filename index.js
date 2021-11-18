@@ -141,7 +141,7 @@ const chart = c3.generate({
       categories: config.labels,
     },
     y: {
-      max : 1,
+      max : 100,
       min : 0,
     },
   },
