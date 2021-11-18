@@ -35,11 +35,28 @@ const config = {
     '2020-03',
     '2020-04',
     '2020-05',
+    '2020-06',
+    '2020-07',
+    '2020-08',
+    '2020-09',
+    '2020-10',
+    '2020-11',
+    '2020-12',
+    '2021-01',
+    '2021-02',
+    '2021-03',
+    '2021-04',
+    '2021-05',
+    '2021-06',
+    '2021-07',
+    '2021-08',
+    '2021-09',
+    '2021-10'
   ],
   /**
    * Labels for the X Axis, one for each field
    */
-  labels: ['Feb. 2020', 'Mar. 2020', 'Apr. 2020', 'May. 2020'],
+  labels: ['Feb. 2020', 'Mar. 2020', 'Apr. 2020', 'May. 2020','Jun. 2020','Jul. 2020','Aug. 2020','Sep. 2020','Oct. 2020','Nov. 2020','Dec. 2020','Jan. 2021','Feb. 2021','Mar. 2021','Apr. 2021','May 2021','Jun. 2021','Jul. 2021','Aug. 2021','Sep. 2021','Oct. 2021'],
   /**
    * The name of the data field to pull the place name from for chart labeling ("Total Votes in placeNameField, placeAdminField")
    */
@@ -122,6 +139,10 @@ const chart = c3.generate({
     x: {
       type: 'category',
       categories: config.labels,
+    },
+    y: {
+      max : 1,
+      min : 0,
     },
   },
   size: {
