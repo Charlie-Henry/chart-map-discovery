@@ -144,8 +144,10 @@ mapboxgl.accessToken = config.accessToken;
 const map = new mapboxgl.Map({
   container: 'map',
   style: config.mapStyle,
+  center: [-97.7298,30.3261],
   // Change this if you want to zoom out further
-  minZoom: 2,
+  minZoom: 8,
+  zoom: 10,
   transformRequest,
 });
 
