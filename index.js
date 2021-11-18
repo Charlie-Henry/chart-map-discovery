@@ -21,12 +21,12 @@ const config = {
   /**
    * This sets the title in the sidebar and the <title> tag of the app
    */
-  title: 'Voting Trends 2004-2016',
+  title: 'Austin Traffic Volumes Since COVID-19',
   /**
    * This sets the description in the sidebar
    */
   description:
-    'This map shows estimated voter turnout as a percentage of total population in 2016, select a county to visualize historical data',
+    'This map shows the average traffic volumes recorded at intersections in Austin for each month compared to February 2020. Click an intersection to see the trend at that location.',
   /**
    * Data fields to chart from the source data
    */
@@ -56,7 +56,28 @@ const config = {
   /**
    * Labels for the X Axis, one for each field
    */
-  labels: ['Feb. 2020', 'Mar. 2020', 'Apr. 2020', 'May. 2020','Jun. 2020','Jul. 2020','Aug. 2020','Sep. 2020','Oct. 2020','Nov. 2020','Dec. 2020','Jan. 2021','Feb. 2021','Mar. 2021','Apr. 2021','May 2021','Jun. 2021','Jul. 2021','Aug. 2021','Sep. 2021','Oct. 2021'],
+  labels: [
+  'Feb. 2020', 
+  'Mar. 2020', 
+  'Apr. 2020', 
+  'May. 2020',
+  'Jun. 2020',
+  'Jul. 2020',
+  'Aug. 2020',
+  'Sep. 2020',
+  'Oct. 2020',
+  'Nov. 2020',
+  'Dec. 2020',
+  'Jan. 2021',
+  'Feb. 2021',
+  'Mar. 2021',
+  'Apr. 2021',
+  'May 2021',
+  'Jun. 2021',
+  'Jul. 2021',
+  'Aug. 2021',
+  'Sep. 2021',
+  'Oct. 2021'],
   /**
    * The name of the data field to pull the place name from for chart labeling ("Total Votes in placeNameField, placeAdminField")
    */
@@ -103,8 +124,8 @@ const config = {
   /**
    * Legend colors and values, ignored if autoLegend is used. Delete both if no legend is needed.
    */
-  legendColors: ['#c200c2', '#a200a3', '#810184', '#600165', '#400246'],
-  legendValues: [13.779, 33.44, 40.88, 46.99, 53.86],
+  legendColors: ['#feedde', '#fdbe85', '#fd8d3c', '#e6550d', '#a63603'],
+  legendValues: [60, 70, 80, 90, 100],
   /**
    * The name of your choropleth map layer in studio, used for building a legend
    */
@@ -146,7 +167,7 @@ const chart = c3.generate({
     },
   },
   size: {
-    height: 300,
+    height: 200,
   },
 });
 
@@ -200,7 +221,20 @@ function makeGeoJSON(csvData) {
         },
         'paint': {
         'circle-radius': 10,
-        'circle-color': "purple"
+        'circle-color': [
+        'interpolate',
+        ['linear'],
+        ['get','most_recent'],
+        60.0,
+        '#feedde',
+        70.0,
+        '#fdbe85',
+        80.0,
+        '#fd8d3c',
+        90.0,
+        '#e6550d',
+        100.0,
+        '#a63603'],
           }
   });
   map.addLayer({
