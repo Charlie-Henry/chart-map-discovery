@@ -319,7 +319,7 @@ function onMapClick(e) {
 
 function processSourceFeatures(features) {
   const uniqueFeatures = filterDuplicates(features);
-  
+  console.log(uniqueFeatures)
   const data = uniqueFeatures.reduce(
     (acc, current) => {
       config.fields.forEach((field, idx) => {
@@ -330,9 +330,8 @@ function processSourceFeatures(features) {
     config.fields.map(() => 0),
   );
   // Save the queried data for resetting later
-  console.log(uniqueFeatures)
-  console.log(data)
   
+
   if (config.summaryType === 'avg') {
     summaryData = data.map((i) => i / uniqueFeatures.length);
 
