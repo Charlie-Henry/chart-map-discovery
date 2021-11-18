@@ -13,7 +13,7 @@ const config = {
   /**
    * Replace with the url of your map style
    */
-  mapStyle: 'mapbox://styles/charlie2343/ckw54jz6w0ogi15paejskgx4w',
+  mapStyle: 'mapbox://styles/charlie2343/ckgjy2anp1kbm1amvehn0h1ql',
   /**
    * The layer within the vector tileset to use for querying
    */
@@ -31,23 +31,23 @@ const config = {
    * Data fields to chart from the source data
    */
   fields: [
-    '2004_tot_vote_pop',
-    '2008_tot_vote_pop',
-    '2012_tot_vote_pop',
-    '2016_tot_vote_pop',
+    '2020-02',
+    '2020-03',
+    '2020-04',
+    '2020-05',
   ],
   /**
    * Labels for the X Axis, one for each field
    */
-  labels: ['2004', '2008', '2012', '2016'],
+  labels: ['Feb. 2020', 'Mar. 2020', 'Apr. 2020', 'May. 2020'],
   /**
    * The name of the data field to pull the place name from for chart labeling ("Total Votes in placeNameField, placeAdminField")
    */
-  placeNameField: 'name',
+  placeNameField: 'intersection',
   /**
    * (_Optional_) The name of the administrative unit field to use in chart labeling ("Total Votes in placeNameField, placeAdminField")
    */
-  placeAdminField: 'state_abbrev',
+  placeAdminField: '',
   /**
    * This sets what type of summary math is used to calculate the initial chart, options are 'avg' or 'sum' (default)
    * Use 'avg' for data that is a rate like turnout %, pizzas per capita or per sq mile
@@ -149,12 +149,46 @@ const map = new mapboxgl.Map({
   transformRequest,
 });
 
+$(document).ready(function () {
+  $.ajax({
+    type: "GET",
+    //YOUR TURN: Replace with csv export link
+    url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfCAUC4EeZ6FlopGh5ip6taqS9-vUAcy8SUDriUVOS5cqRGnmE0t4rggTceQ2WkaUPvNHGoP4c96Tl/pub?gid=2073884462&single=true&output=csv',
+    dataType: "text",
+    success: function (csvData) { makeGeoJSON(csvData); }
+  });
+
+
+function makeGeoJSON(csvData) {
+  csv2geojson.csv2geojson(csvData, {
+    latfield: 'latitude',
+    lonfield: 'longitude',
+    delimiter: ','
+  }, function (err, data) {
+  map.on('load', function () {
+
+  //Add the the layer to the map
+  map.addLayer({
+    'id': 'csvData',
+    'type': 'circle',
+    'source': {
+    'type': 'geojson',
+      'data': data
+        },
+        'paint': {
+        'circle-radius': 5,
+        'circle-color': "purple"
+          }
+  });
+/**
 map.once('idle', () => {
   bbFull = map.getBounds();
 
   buildLegend();
 
+  
   /** Layer for onClick highlights, to change to a fill see this tutorial: https://docs.mapbox.com/mapbox-gl-js/example/hover-styles/ */
+  /**
   map.addLayer({
     id: 'highlight',
     type: 'line',
@@ -180,12 +214,15 @@ map.once('idle', () => {
    *
    * To graph all features within the viewport, change this to queryRenderedFeatures and trigger on 'idle' or 'render'
    * */
+   /**
   const sourceFeatures = map.querySourceFeatures(config.sourceId, {
     sourceLayer: config.sourceLayer,
   });
   processSourceFeatures(sourceFeatures);
 });
+*/
 
+/**
 document.getElementById('resetButton').onclick = () => {
   if (summaryData) {
     updateChartFromFeatures(summaryData);
@@ -195,7 +232,7 @@ document.getElementById('resetButton').onclick = () => {
     map.fitBounds(bbFull);
   }
 };
-
+*/
 function onMapClick(e) {
   const clickedFeature = map
     .queryRenderedFeatures(e.point)
