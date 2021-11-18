@@ -225,13 +225,13 @@ map.once('idle', () => {
    *
    * To graph all features within the viewport, change this to queryRenderedFeatures and trigger on 'idle' or 'render'
    * */
-   /**
+   
   const sourceFeatures = map.querySourceFeatures(config.sourceId, {
     sourceLayer: config.sourceLayer,
   });
   processSourceFeatures(sourceFeatures);
 });
-*/
+
 
 
 document.getElementById('resetButton').onclick = () => {
@@ -394,4 +394,3 @@ function buildLegend() {
     });
   }
 }
-});
