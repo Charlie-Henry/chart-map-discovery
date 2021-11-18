@@ -182,6 +182,25 @@ function makeGeoJSON(csvData) {
         'circle-color': "purple"
           }
   });
+  map.addLayer({
+    id: 'highlight',
+    type: 'circle',
+    source: {
+      'type': 'geojson',
+      'data': data
+    },
+    paint: {
+      'circle-color': config.highlightColor,
+      'circle-radius': 10,
+      'circle-opacity': [
+        'case',
+        ['boolean', ['feature-state', 'active'], false],
+        0.7,
+        0,
+      ],
+    },
+  });
+
 });
 });
 };
@@ -196,22 +215,7 @@ map.once('idle', () => {
   
   /** Layer for onClick highlights, to change to a fill see this tutorial: https://docs.mapbox.com/mapbox-gl-js/example/hover-styles/ */
   
-  map.addLayer({
-    id: 'highlight',
-    type: 'circle',
-    source: 'composite',
-    'source-layer': config.sourceLayer,
-    paint: {
-      'circle-color': config.highlightColor,
-      'circle-radius': 10,
-      'circle-opacity': [
-        'case',
-        ['boolean', ['feature-state', 'active'], false],
-        0.7,
-        0,
-      ],
-    },
-  });
+  
   map.on('click', onMapClick);
   /**
    * 'In contrast to Map#queryRenderedFeatures, this function returns all features matching the query parameters,
