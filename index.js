@@ -186,10 +186,10 @@ mapboxgl.accessToken = config.accessToken;
 const map = new mapboxgl.Map({
   container: 'map',
   style: config.mapStyle,
-  center: [-97.6558,30.3998],
+  center: [-97.7182,30.4509],
   // Change this if you want to zoom out further
   minZoom: 8,
-  zoom: 10,
+  zoom: 9,
   transformRequest,
 });
 
@@ -283,7 +283,6 @@ map.once('idle', () => {
    * */
    
   const sourceFeatures = map.querySourceFeatures(config.sourceId);
-  
   processSourceFeatures(sourceFeatures);
 });
 
@@ -324,7 +323,7 @@ function processSourceFeatures(features) {
   const data = uniqueFeatures.reduce(
     (acc, current) => {
       config.fields.forEach((field, idx) => {
-        acc[idx] += current.properties[field];
+          acc[idx] += current.properties[field];
       });
       return acc;
     },
